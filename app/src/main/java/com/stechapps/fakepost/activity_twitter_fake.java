@@ -5,24 +5,77 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class activity_twitter_fake extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class activity_twitter_fake extends AppCompatActivity implements TweetDescipFragment.OnTweetSubmittedListener{
+boolean b=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twitter_fake);
 
-
+        FrameLayout flm=findViewById(R.id.fl_frag_container);
+        TweetDescipFragment tweetDescipFragment =new TweetDescipFragment(this);
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_frag_container, tweetDescipFragment).commit();
+        flm.setVisibility(View.VISIBLE);
 
 
     }
 
     public void create_tweet(View view) {
-        FrameLayout flm=findViewById(R.id.fl_frag_container);
-        TweetDescip tweetDescip=new TweetDescip(this);
-        getSupportFragmentManager().beginTransaction().add(R.id.fl_frag_container,tweetDescip).commit();
-        flm.setVisibility(View.VISIBLE);
-        findViewById(R.id.bt_create_twitter).setVisibility(View.GONE);
+       switchFrag();
+
     }
+
+    @Override
+    public void onTweetSubmittedClicked(String s1, String s2, String s3) {
+
+        switchFrag();
+        switchFrag(s1,s2,s3);
+    }
+
+    private void switchFrag() {
+        if(b){
+
+            TweetDescipFragment tweetDescipFragment =new TweetDescipFragment(this);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_frag_container, tweetDescipFragment).commit();
+
+
+
+        }
+        else{
+
+            twitterViewFragment twitterViewFragment =new twitterViewFragment(this);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_frag_container, twitterViewFragment).commit();
+
+
+        }
+        b=!b;
+    }
+    private void switchFrag(String s1,String s2,String s3) {
+        if(s1!=null&&s2!=null&&s3!=null){
+            Bundle args=new Bundle();
+            TweetDescipFragment tweetDescipFragment =new TweetDescipFragment(this);
+            ArrayList<String> col=new ArrayList<>();
+            col.add(s1);
+            col.add(s2);
+            col.add(s3);
+            args.putStringArrayList("statements",col);
+            tweetDescipFragment.setArguments(args);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_frag_container, tweetDescipFragment).commit();
+
+
+
+        }
+        else{
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+
+
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TweetDescip">
+    tools:context=".TweetDescipFragment"
+   >
     <LinearLayout
         android:layout_margin="12dp"
         android:layout_width="match_parent"
@@ -19,6 +20,7 @@
        android:layout_height="wrap_content"
        android:text="USER NAME :: "/>
         <EditText
+            android:id="@+id/ed_ftd_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -36,6 +38,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/ed_ftd_user_id"
+
                 android:layout_marginLeft="5dp"
                 android:hint="tweet_user_id"/>
         </LinearLayout>
@@ -51,8 +55,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:hint="tweet_decrip"/>
+                android:hint="tweet_decrip"
+                android:id="@+id/ed_ftd_descrip"
+                />
+
         </LinearLayout>
 
     </LinearLayout>
-</FrameLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_submit_tweet"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="aaa"
+        android:background="@android:color/holo_blue_bright"
+        android:clickable="true"
+        android:src="@android:color/holo_blue_bright"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="123dp"
+
+        />
+</RelativeLayout>
