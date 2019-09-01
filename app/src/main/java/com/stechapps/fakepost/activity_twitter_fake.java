@@ -19,6 +19,7 @@ boolean b=true;
 
         FrameLayout flm=findViewById(R.id.fl_frag_container);
         TweetDescipFragment tweetDescipFragment =new TweetDescipFragment(this);
+        tweetDescipFragment.setmTweetSubmittedTweet(this);
         getSupportFragmentManager().beginTransaction().add(R.id.fl_frag_container, tweetDescipFragment).commit();
         flm.setVisibility(View.VISIBLE);
 
@@ -33,7 +34,6 @@ boolean b=true;
     @Override
     public void onTweetSubmittedClicked(String s1, String s2, String s3) {
 
-        switchFrag();
         switchFrag(s1,s2,s3);
     }
 
@@ -41,6 +41,8 @@ boolean b=true;
         if(b){
 
             TweetDescipFragment tweetDescipFragment =new TweetDescipFragment(this);
+            tweetDescipFragment.setmTweetSubmittedTweet(this);
+
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_frag_container, tweetDescipFragment).commit();
 
 
@@ -56,26 +58,23 @@ boolean b=true;
         b=!b;
     }
     private void switchFrag(String s1,String s2,String s3) {
-        if(s1!=null&&s2!=null&&s3!=null){
+
             Bundle args=new Bundle();
-            TweetDescipFragment tweetDescipFragment =new TweetDescipFragment(this);
+            twitterViewFragment twitterViewFragment =new twitterViewFragment(this);
             ArrayList<String> col=new ArrayList<>();
             col.add(s1);
             col.add(s2);
             col.add(s3);
             args.putStringArrayList("statements",col);
-            tweetDescipFragment.setArguments(args);
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_frag_container, tweetDescipFragment).commit();
+        twitterViewFragment.setArguments(args);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_frag_container, twitterViewFragment).commit();
 
 
 
         }
-        else{
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
 
-        }
     }
 
 
 
-}
+

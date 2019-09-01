@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class TweetDescipFragment extends Fragment {
-    Context mcontext;
-    OnTweetSubmittedListener mTweetSubmittedTweet;
+    private Context mcontext;
+    private String TAG="ERROR AT TWEET DESCRIP FRAG";
+    private OnTweetSubmittedListener mTweetSubmittedTweet;
 
     public void setmTweetSubmittedTweet(OnTweetSubmittedListener mTweetSubmittedTweet) {
         this.mTweetSubmittedTweet = mTweetSubmittedTweet;
@@ -54,8 +56,9 @@ public class TweetDescipFragment extends Fragment {
                 EditText e3=root.findViewById(R.id.ed_ftd_descrip);
                 String s3=e3.getText().toString().trim();
 
-                    if(!(s1.isEmpty()&&s2.isEmpty()&&s3.isEmpty())){
-                mTweetSubmittedTweet.onTweetSubmittedClicked(s1,s2,s3);
+                    if(!(s1.isEmpty()&&s2.isEmpty()&&s3.isEmpty()&&mTweetSubmittedTweet==null)){
+                        Log.d(TAG, "onClick: "+mTweetSubmittedTweet);
+                        mTweetSubmittedTweet.onTweetSubmittedClicked(s1,s2,s3);
 
                     if(!(s1.isEmpty())){
                         Toast.makeText(mcontext, "s1 is empty", Toast.LENGTH_SHORT).show();
