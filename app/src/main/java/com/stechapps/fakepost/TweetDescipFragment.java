@@ -27,7 +27,6 @@ public class TweetDescipFragment extends Fragment {
     }
 
     public TweetDescipFragment() {
-        // Required empty public constructor
     }
     public TweetDescipFragment(Context context){
         mcontext=context;
@@ -60,15 +59,7 @@ public class TweetDescipFragment extends Fragment {
                         Log.d(TAG, "onClick: "+mTweetSubmittedTweet);
                         mTweetSubmittedTweet.onTweetSubmittedClicked(s1,s2,s3);
 
-                    if(!(s1.isEmpty())){
-                        Toast.makeText(mcontext, "s1 is empty", Toast.LENGTH_SHORT).show();
-                    }
-                    if(!(s2.isEmpty())){
-                        Toast.makeText(mcontext, "s2 is empty", Toast.LENGTH_SHORT).show();
-                    }
-                    if(!(s3.isEmpty())){
-                        Toast.makeText(mcontext, "s3 is empty", Toast.LENGTH_SHORT).show();
-                    }
+
 
                 }
            }

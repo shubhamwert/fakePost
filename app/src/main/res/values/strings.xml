@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">FakePost</string>
-    <string name="tv_like_string">/b10k tweets /s 2k likes</string>
+    <string name="tv_like_string"> <b> 10k tweets 2k likes</b></string>
+    <string name="twitter">Twitter</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

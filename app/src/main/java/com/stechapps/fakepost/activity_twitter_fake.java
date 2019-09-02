@@ -1,6 +1,7 @@
 package com.stechapps.fakepost;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class activity_twitter_fake extends AppCompatActivity implements TweetDescipFragment.OnTweetSubmittedListener{
-boolean b=true;
+    private boolean b=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,7 @@ boolean b=true;
             TweetDescipFragment tweetDescipFragment =new TweetDescipFragment(this);
             tweetDescipFragment.setmTweetSubmittedTweet(this);
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_frag_container, tweetDescipFragment).commit();
+            getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_left,R.anim.exit_right).replace(R.id.fl_frag_container, tweetDescipFragment).addToBackStack(null).commit();
 
 
 
@@ -51,7 +52,7 @@ boolean b=true;
         else{
 
             twitterViewFragment twitterViewFragment =new twitterViewFragment(this);
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_frag_container, twitterViewFragment).commit();
+            getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_left,R.anim.exit_right).replace(R.id.fl_frag_container, twitterViewFragment).addToBackStack(null).commit();
 
 
         }
@@ -66,8 +67,8 @@ boolean b=true;
             col.add(s2);
             col.add(s3);
             args.putStringArrayList("statements",col);
-        twitterViewFragment.setArguments(args);
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl_frag_container, twitterViewFragment).commit();
+            twitterViewFragment.setArguments(args);
+            getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_right,R.anim.exit_left).replace(R.id.fl_frag_container, twitterViewFragment).addToBackStack(null).commit();
 
 
 

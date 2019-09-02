@@ -21,13 +21,5 @@
         android:visibility="gone"
         />
 
-    <Button
-        android:id="@+id/bt_create_twitter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="27dp"
-        android:onClick="create_tweet"
-        android:text="create_tweet" />
 
 </RelativeLayout>

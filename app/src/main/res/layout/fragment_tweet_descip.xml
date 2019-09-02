@@ -4,12 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TweetDescipFragment"
+
    >
     <LinearLayout
         android:layout_margin="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/ll"
+        android:layout_centerInParent="true">
     <!-- TODO: Update blank fragment layout -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,13 +38,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User Id :: "/>
+
             <EditText
+                android:id="@+id/ed_ftd_user_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ed_ftd_user_id"
 
                 android:layout_marginLeft="5dp"
-                android:hint="tweet_user_id"/>
+                android:hint="tweet_user_id" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,25 +61,21 @@
                 android:layout_marginLeft="5dp"
                 android:hint="tweet_decrip"
                 android:id="@+id/ed_ftd_descrip"
+                android:minHeight="134dp"
+
                 />
 
         </LinearLayout>
 
     </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_submit_tweet"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="aaa"
-        android:background="@android:color/holo_blue_bright"
-        android:clickable="true"
-        android:src="@android:color/holo_blue_bright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="123dp"
-
-        />
+        android:layout_margin="1dp"
+        android:clickable="true"
+        android:focusable="true" />
 </RelativeLayout>
