@@ -5,14 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    tools:context=".MainActivity"
+    android:background="@drawable/background_gradient">
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="54dp"
+    android:background="@drawable/main_activity_cards_gradient"
+    android:layout_height="wrap_content">
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
     android:text="@string/twitter"
+    android:onClick="twitter"
     android:padding="22dp"
-    />
 
+    />
+</androidx.cardview.widget.CardView>
 </LinearLayout>
